@@ -1,8 +1,8 @@
 # Face & Emotion Detection Web App
 
-**Live Demo:** [Try It Online](https://emotion-vision-ai.netlify.app)
+**Live Demo:** [Try It Online]([https://emotion-vision-ai.netlify.app](https://stackblitz.com/~/github.com/YaadwinderKumar/face-emotion-detection?file=src/App.jsx))
 
-![Screenshot of app](./screenshot.png)
+![Screenshot of app]("C:\Users\joshi\Pictures\Screenshots\Screenshot (160).png")
 
 ## 🧠 Project Overview
 Built using React and :contentReference[oaicite:0]{index=0}, this realtime web application uses your webcam to detect faces, landmark features, and evaluate emotional expressions — all in a beautiful glass-UI interface. It runs entirely in the browser and is deployed live on Netlify.
