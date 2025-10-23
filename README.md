@@ -1,52 +1,63 @@
-# Face & Emotion Detection Web App
+# 🎭 Face & Emotion Detection Web App
 
-**Live Demo:** [Try It Online]([https://emotion-vision-ai.netlify.app](https://stackblitz.com/~/github.com/YaadwinderKumar/face-emotion-detection?file=src/App.jsx))
+**Live Demo:** https://emotion-vision-ai.netlify.app/  
+**Live Preview (StackBlitz):** https://stackblitz.com/~/github.com/YaadwinderKumar/face-emotion-detection
 
-![Screenshot of app]("C:\Users\joshi\Pictures\Screenshots\Screenshot (160).png")
+A real-time face and emotion detection web application built with **React**, **Vite**, and **face-api.js**. It uses your webcam to identify faces, track facial landmarks, and analyze emotional expressions such as **happy, sad, angry, surprised, disgusted, fearful, and neutral** — all displayed in a modern **glassmorphism UI**.
 
-## 🧠 Project Overview
-Built using React and :contentReference[oaicite:0]{index=0}, this realtime web application uses your webcam to detect faces, landmark features, and evaluate emotional expressions — all in a beautiful glass-UI interface. It runs entirely in the browser and is deployed live on Netlify.
+---
 
 ## ✅ Features
-- Real-time face detection using TinyFaceDetector  
-- Facial landmarks tracking for eyes, nose & lips  
-- Emotion recognition with confidence scores (happy, sad, neutral, angry, fearful, disgusted, surprised)  
-- Stylish modern UI with glassmorphism & neon accents  
-- Responsive layout for desktop & mobile  
-- Zero backend — runs fully in browser (React + face-api.js)  
-- Easy deployment and updating pipeline (GitHub → Netlify)
 
-## 📚 Tech Stack
-- React (v18+)  
-- :contentReference[oaicite:1]{index=1} for face & emotion detection  
-- Vite for faster build  
-- Netlify for live deployment  
-- JavaScript / JSX, CSS (modern styling)  
-- Webcam access & HTML5 Canvas overlay  
+- 🔍 Real-time **Face Detection**  
+- 😊 **Emotion Recognition** with confidence scores  
+- 👁️ **Facial Landmarks** overlay  
+- 🧠 Powered by **TinyFaceDetector** (fast and lightweight)  
+- 🎨 Sleek **Glass UI** (modern + responsive)  
+- 🌐 Works **fully in-browser** (no backend needed)  
+- 🚀 **Live Deployed on Netlify**
 
-## 🔧 How It Works
-1. Load AI models from the CDN (TinyFaceDetector, Landmark68Net, ExpressionNet)  
-2. Start webcam stream using `react-webcam`  
-3. Detect faces in real-time, resize detection results to video size  
-4. Draw boxes, landmarks and emotion labels on canvas overlay  
-5. Display emotion panel showing top expressions and confidence scores  
-6. Update automatically on Netlify on every push to the `main` branch  
+---
 
-## 🏁 Quick Start
+## 🧠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React + Vite | Frontend App |
+| face-api.js | Face & Emotion Detection |
+| HTML5 Canvas | Drawing face overlays |
+| Netlify | Deployment |
+| StackBlitz | Browser-based Dev Environment |
+
+---
+
+## 🛠️ How It Works
+
+1. App loads AI models (TinyFaceDetector, LandmarkNet, ExpressionNet)
+2. User allows webcam access
+3. Video feed is analyzed frame-by-frame
+4. App draws:
+   - 📦 Bounding box around face
+   - 📌 Landmarks (eyes, nose, lips, jawline)
+   - 🎭 Emotion predictions with % scores
+5. Results update in **real-time** on the UI
+
+---
+
+## 📌 Run Locally
+
 ```bash
-# Clone repository
-git clone https://github.com/YaadwinderKumar/face-emotion-detection.git
+# Clone the repo
+git clone https://github.com/YaadwinderKumar/face-emotion-detection
 
-# Change directory
+# Go into the project folder
 cd face-emotion-detection
 
 # Install dependencies
 npm install
 
-# Start development server
+# Run locally
 npm run dev
 
-# Build
+# Build for production
 npm run build
-
-# You can deploy `dist/` folder to any static host
