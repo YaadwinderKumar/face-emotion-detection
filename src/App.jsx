@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import Webcam from 'react-webcam';
-import * as faceapi from 'face-api.js';
-import './App.css';
+import { useEffect, useRef, useState } from "react";
+import Webcam from "react-webcam";
+import * as faceapi from "face-api.js";
+import "./App.css";
 
 const MODEL_URL =
-  'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights';
+  "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights";
 
 export default function App() {
   const webcamRef = useRef(null);
@@ -55,7 +55,7 @@ export default function App() {
         .withFaceLandmarks()
         .withFaceExpressions();
 
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext("2d");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const resized = faceapi.resizeResults(detections, {
@@ -109,23 +109,14 @@ export default function App() {
             </div>
           )}
 
-          <div className={`video-area ${modelsReady ? 'ready' : ''}`}>
-            <Webcam
-              ref={webcamRef}
-              audio={false}
-              onUserMedia={onUserMedia}
-              className="video"
-            />
+          <div className={`video-area ${modelsReady ? "ready" : ""}`}>
+            <Webcam ref={webcamRef} audio={false} onUserMedia={onUserMedia} className="video" />
             <canvas ref={canvasRef} className="overlay" />
           </div>
 
           <div className="chip-row">
-            <span className="chip">
-              Models: {modelsReady ? 'Ready ✅' : 'Loading…'}
-            </span>
-            <span className="chip">
-              Camera: {videoReady ? 'On ✅' : 'Waiting…'}
-            </span>
+            <span className="chip">Models: {modelsReady ? "Ready ✅" : "Loading…"}</span>
+            <span className="chip">Camera: {videoReady ? "On ✅" : "Waiting…"}</span>
             <span className="chip">Faces: {faceCount}</span>
           </div>
         </div>
@@ -133,26 +124,20 @@ export default function App() {
         {/* EMOTION PANEL */}
         <aside className="glass card panel">
           <h3>Emotion Panel</h3>
-          {faceCount === 0 && (
-            <p className="muted">No face detected. Look at the camera.</p>
-          )}
+          {faceCount === 0 && <p className="muted">No face detected. Look at the camera.</p>}
 
           {topExpressions.length > 0 && (
             <ul className="bars">
               {topExpressions.map(({ name, score }) => (
                 <li key={name}>
                   <div className="bar-row">
-                    <span className="label">
-                      {iconFor(name)} {pretty(name)}
-                    </span>
+                    <span className="label">{iconFor(name)} {pretty(name)}</span>
                     <span className="val">{(score * 100).toFixed(0)}%</span>
                   </div>
                   <div className="bar">
                     <div
                       className="fill"
-                      style={{
-                        width: `${Math.min(100, Math.max(0, score * 100))}%`,
-                      }}
+                      style={{ width: `${Math.min(100, Math.max(0, score * 100))}%` }}
                     />
                   </div>
                 </li>
@@ -160,9 +145,7 @@ export default function App() {
             </ul>
           )}
 
-          <p className="muted small">
-            Tip: Good lighting improves emotion accuracy.
-          </p>
+          <p className="muted small">Tip: Good lighting improves emotion accuracy.</p>
         </aside>
       </main>
 
@@ -175,26 +158,26 @@ export default function App() {
 
 function pretty(name) {
   const map = {
-    neutral: 'Neutral',
-    happy: 'Happy',
-    sad: 'Sad',
-    angry: 'Angry',
-    fearful: 'Fearful',
-    disgusted: 'Disgusted',
-    surprised: 'Surprised',
+    neutral: "Neutral",
+    happy: "Happy",
+    sad: "Sad",
+    angry: "Angry",
+    fearful: "Fearful",
+    disgusted: "Disgusted",
+    surprised: "Surprised",
   };
   return map[name] ?? name;
 }
 
 function iconFor(name) {
   const icons = {
-    neutral: '😐',
-    happy: '😄',
-    sad: '😢',
-    angry: '😠',
-    fearful: '😨',
-    disgusted: '🤢',
-    surprised: '😮',
+    neutral: "😐",
+    happy: "😄",
+    sad: "😢",
+    angry: "😠",
+    fearful: "😨",
+    disgusted: "🤢",
+    surprised: "😮",
   };
-  return icons[name] ?? '🙂';
+  return icons[name] ?? "🙂";
 }
